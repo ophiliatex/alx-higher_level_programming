@@ -1,22 +1,22 @@
 #!/usr/bin/python3
-import sys
+
 
 if __name__ == "__main__":
-    args = sys.argv[1:]
-    if len(args) != 3:
+    """
+    Handle basic arithmetic operations.
+    """
+    from calculator_1 import add, sub, mul, div
+    import sys
+
+    if len(sys.argv) - 1 != 3:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
-    a = int(args[0])
-    b = int(args[2])
-    if args[1] == '+':
-        print(f"{a:d} + {b:d} = {a + b:d}")
-    elif args[1] == '-':
-        print("{} - {} = {}".format(a, b, a - b))
-    elif args[1] == '*':
-        print("{} * {} = {}".format(a, b, a * b))
-    elif args[1] == '/':
-        print("{} / {} = {}".format(a, b, a / b))
-    else:
+
+    ops = {"+": add, "-": sub, "*": mul, "/": div}
+    if sys.argv[2] not in list(ops.keys()):
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
-    sys.exit(0)
+
+    a = int(sys.argv[1])
+    b = int(sys.argv[3])
+    print("{} {} {} = {}".format(a, sys.argv[2], b, ops[sys.argv[2]](a, b)))
