@@ -1,21 +1,22 @@
 #!/usr/bin/pythion3
+"""Defines a square module."""
 
 class Square:
- """Defines a sqaure"""
+ """Defines a sqaure."""
 
     def __init__(self, size=0, position=(0, 0)):
         """Begins a new square.
 
         Args:
-            size: dimension of the new square
-            position: The position of the new square
+            size: Dimension of the new square.
+            position: The position of the new square.
         """
         self.size = size
         self.position = position
 
     @property
     def size(self):
-        """set the current size of the sqaure"""
+        """Set the current size of the sqaure."""
         return (self.__size)
 
     @size.setter
@@ -28,7 +29,7 @@ class Square:
 
     @property
     def position(self):
-        """set the current position of the square"""
+        """Set the current position of the square."""
         return (self.__position)
 
     @position.setter
@@ -41,7 +42,7 @@ class Square:
         self.__position = value
 
     def area(self):
-        """Return the area of the square"""
+        """Return the area of the square."""
         return (self.__size * self.__size)
 
     def my_print(self):
@@ -54,4 +55,4 @@ class Square:
     for i in range(0, self.__size):
         [print(" ", end="") for j in range(0, self.__position[0])]
         [print("#", end="") for k in range(0, self.__size)]
-        print("") 
+        print("")

@@ -2,20 +2,20 @@
 """Defines a class for a singly-linked list."""
 
 class Node:
-    """A node in the list"""
+    """A node in the list."""
 
     def __init__(self, data, next_node=None):
-        """Initiate a new node
+        """Initiate a new node.
         Args:
-            data (int): The data of the new Node
-            next_node (Node): The next node
+            data (int): The data of the new Node.
+            next_node (Node): The next node.
         """
         self.data = data
         self.next_node = next_node
 
     @property
     def data(self):
-        """set the data of the Node."""
+        """Set the data of the Node."""
         return (self.__data)
     @data.setter
     def data(self, value):
@@ -25,7 +25,7 @@ class Node:
 
     @property
     def next_node(self):
-        """set the next Node of the list"""
+        """Set the next Node of the list."""
         return (self.__next_node)
 
     @next_node.setter
@@ -35,15 +35,15 @@ class Node:
         self.__next_node = value
 
 class SinglyLinkedList:
-    """A singly-linked list"""
+    """A singly-linked list."""
 
     def __init__(self):
-        """A new singly-linked list"""
+        """A new singly-linked list."""
         self.__head = None
 
     def sorted_insert(self, value):
-        """Inserts a new Node to the list
-        the node is inserted into the list at the respective numerical order
+        """Inserts a new Node to the list.
+        The node is inserted into the list at the respective numerical order.
         Args:
         value (Node): The new Node to insert.
         """
@@ -63,12 +63,10 @@ class SinglyLinkedList:
                 tmp.next_node = new
 
     def __str__(self):
-        """The print() repersentation of the list"""
+        """The print() repersentation of the list."""
         values = []
         tmp = self.__head
         while tmp is not None:
             values.append(str(tmp.data))
             tmp = tmp.next_node
         return ('\n'.join(values))
-
- 

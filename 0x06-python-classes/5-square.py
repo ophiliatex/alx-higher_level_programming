@@ -1,19 +1,21 @@
 #!/usr/bin/python3
+"""Defines a square module."""
+
 class Square:
- """Defines a sqaure"""
+ """Defines a sqaure."""
 
     def __init__(self, size=0):
-        """constructor
+        """Constructor.
 
         Args:
-            size: dimension of the square
+            size: Dimension of the square.
 
         """
         self.__size = size
 
     @property
     def size(self):
-        """Property for the dimension of the sqaure
+        """Property for the dimension of the sqaure.
         Raises:
             TpeError: If sizee is not an integer.
             ValueError: If size is less than 0.
@@ -22,6 +24,11 @@ class Square:
 
     @size.setter
     def size(self, value):
+        """Property for the dimension of the sqaure.
+        Raises:
+            TpeError: If sizee is not an integer.
+            ValueError: If size is less than 0.
+        """
 	if not isinstance(value, int):
             raise TypeError('size must be an integer')
         if value < 0:
@@ -29,9 +36,9 @@ class Square:
         self.__size = value
 
     def area(self):
-        """Area of the square
+        """Area of the square.
         Returns:
-            the size the squared
+            The size the squared.
         """
         return self.__size ** 2
 
