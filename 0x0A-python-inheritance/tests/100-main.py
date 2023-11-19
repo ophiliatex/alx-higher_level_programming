@@ -1,4 +1,5 @@
-mport__('100-my_int').MyInt
+#!/usr/bin/python3
+MyInt = __import__('100-my_int').MyInt
 
 my_i = MyInt(3)
 print(my_i)

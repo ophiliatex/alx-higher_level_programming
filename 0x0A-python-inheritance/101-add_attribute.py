@@ -1,4 +1,5 @@
- a function that adds attributes to objects."""
+ #!/usr/bin/python3
+"""Defines a function that adds attributes to objects."""
 
 
 def add_attribute(obj, att, value):
