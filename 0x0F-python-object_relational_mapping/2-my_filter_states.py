@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-Script: filter_states.py
+Script: list_states_dynamic.py
 
 Description:
 This script lists all states from the database 'hbtn_0e_6_usa' with the name
@@ -10,10 +10,10 @@ credentials and retrieves the states whose names start with 'N', displaying
 the results in the order of state IDs.
 
 Usage:
-python3 filter_states.py <MySQL_username> <MySQL_password> <database_name>
+python3 list_states_dynamic.py <MySQL_username> <MySQL_password> <database_name>
 
 Example:
-python3 2-my_filter_states.py myusername mypassword hbtn_0e_6_usa
+python3 list_states_dynamic.py myusername mypassword hbtn_0e_6_usa
 """ 
  
 import MySQLdb
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     sys.argv[3]: Database name
 
     Usage Example:
-    python3 filter_states.py myusername mypassword hbtn_0e_6_usa
+    python3 list_states_dynamic.py myusername mypassword hbtn_0e_6_usa
     """
 
     db = MySQLdb.connect(host="localhost", user=sys.argv[1],
