@@ -14,11 +14,11 @@ python3 list_states.py <MySQL_username> <MySQL_password> <database_name>
 Example:
 python3 list_states.py myusername mypassword hbtn_0e_6_usa
 """
+
 import sys
 from model_state import Base, State
-from sqlalchemy import (create_engine)
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
 
 if __name__ == "__main__":
     """
@@ -37,14 +37,17 @@ if __name__ == "__main__":
     python3 list_states.py myusername mypassword hbtn_0e_6_usa
     """
 
-
+    # Create a database engine
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-            .format(sys.argv[1], sys.argv[2], sys.argv[3]))
-    Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
 
+    # Create the database tables if they do not exist
+    Base.metadata.create_all(engine)
+
+    # Create a session
+    Session = sessionmaker(bind=engine)
     session = Session()
 
-
-    for instance in session.query(State).filter(State.name.('a')):
-    print('{0}: {1}'.format(instance.id, instance.name))
+    # Query and print states whose names start with 'N'
+    for instance in session.query(State).filter(State.name.like('N%')):
+        print('{0}: {1}'.format(instance.id, instance.name))

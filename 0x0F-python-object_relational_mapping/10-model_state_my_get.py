@@ -14,9 +14,10 @@ python3 list_states.py <MySQL_username> <MySQL_password> <database_name>
 Example:
 python3 list_states.py myusername mypassword hbtn_0e_6_usa
 """
+
 import sys
 from model_state import Base, State
-from sqlalchemy import (create_engine)
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
@@ -36,15 +37,23 @@ if __name__ == "__main__":
     python3 list_states.py myusername mypassword hbtn_0e_6_usa
     """
 
+    # Create a database engine
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-            .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+
+    # Create the database tables if they do not exist
     Base.metadata.create_all(engine)
+
+    # Create a session
     Session = sessionmaker(bind=engine)
-
     session = Session()
-    instance = session.query(State).filter(State.name == (sys.argv[4],))
 
-    try: 
-         print(instance[0].id)
-    except IndexError:
+    # Query states with the specified name
+    instance = session.query(State).filter(State.name == sys.argv[4]).first()
+
+    try:
+        # Print the state ID if found
+        print(instance.id)
+    except AttributeError:
+        # Handle the case where no state is found
         print("Not found")
