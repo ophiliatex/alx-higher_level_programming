@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 
-"""lists all states from the.
+"""
+lists all states from the.
 database hbtn_0e_0_usa.
+with the name passed as argument
+from the database `hbtn_0e_6_usa`.
 """
 import MySQLdb
 import sys
